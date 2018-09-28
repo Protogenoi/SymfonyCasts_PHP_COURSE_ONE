@@ -1,42 +1,8 @@
 <?php
 
-$pet1 = array(
-    'name' => 'Chew Barka',
-    'breed' => 'Bichon',
-    'age' => '2 years',
-    'weight' => 8,
-    'bio' => 'The park, The pool or the Playground - I love to go anywhere! I am really great at... SQUIRREL!',
-    'filename' => 'pet1.png'
-);
+$petsJson = file_get_contents('data/pets.json');
+$pets = json_decode($petsJson, true);
 
-$pet2 = array(
-    'name' => 'Spark Pug',
-    'breed' => 'Pug',
-    'age' => '1.5 years',
-    'weight' => 11,
-    'bio' => 'You want to go to the dog park in style? Then I am your pug!',
-    'filename' => 'pet2.png'
-);
-
-$pet3 = array(
-    'name' => 'Pico de Gato',
-    'breed' => 'Bengal',
-    'age' => '5 years',
-    'weight' => 9,
-    'bio' => 'Oh hai, if you do not have a can of salmon I am not interested.',
-    'filename' => 'pet3.png'
-);
-
-$pancake = array(
-    'name' => 'Pancake the Bulldog',
-    'age' => '1 year',
-    'weight' => 9,
-    'bio' => 'Lorem Ipsum',
-    'filename' => 'pancake.png'
-);
-$pancake['breed'] = 'Bulldog';
-
-$pets = [$pet1, $pet2, $pet3, $pancake];
 $pets = array_reverse($pets);
 
 $cleverWelcomeMessage = 'All the love, none of the crap!';
@@ -123,7 +89,7 @@ $pupCount = count($pets);
         <?php foreach ($pets as $cutepet) { ?>
             <div class="col-lg-4 pet-list-item">
                 <h2><?php echo $cutepet['name']; ?></h2>
-                <img src="/images/<?php echo $cutepet['filename']; ?>"
+                <img src="/images/<?php echo $cutepet['image']; ?>"
                      class="img-rounded"/>
 
                 <blockquote class="pet-details">
