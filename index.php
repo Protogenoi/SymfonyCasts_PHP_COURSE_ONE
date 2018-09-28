@@ -88,12 +88,38 @@
     $pet2 = 'Spark Pug';
     $pet3 = 'Pico de Gato';
 
+    $pancake = [
+        'name' => 'Pancake',
+        'age' => '1 year',
+        'weight' => 9,
+        'bio' => 'Treas and Snoozin!',
+        'filename' => 'pancake.png'
+    ];
+
+    $pancake['breed'] = 'Bulldog';
+
     $pets = [$pet1, $pet2, $pet3];
+    $pets[] = 'Kitty Gaga';
 
     ?>
 
     <div class="container">
         <div class="row">
+            <div class="col-lg-4 pet-list-item">
+                <h2><?php echo $pancake['name']; ?></h2>
+                <img src="/images/<?php echo $pancake['filename']; ?>"
+                     class="img-rounded"/>
+
+                <blockquote class="pet-details">
+                    <span class="label label-info"><?php echo $pancake['breed']; ?></span>
+                    <?php echo $pancake['age']; ?>
+                    <?php echo $pancake['weight']; ?> lbs
+                </blockquote>
+
+                <p>
+                    <?php echo $pancake['bio']; ?>
+                </p>
+            </div>
 
             <?php
 
