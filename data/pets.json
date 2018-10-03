@@ -53,5 +53,13 @@
     "bio": "Magic",
     "age": "",
     "image": ""
+  },
+  {
+    "name": "Mr Spreads",
+    "breed": "Butternut",
+    "weight": "12",
+    "bio": "Likes butter",
+    "age": "",
+    "image": ""
     }
 ]
