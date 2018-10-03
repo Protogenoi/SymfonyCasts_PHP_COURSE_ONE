@@ -30,16 +30,42 @@
  *
  */
 
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    if (isset($_POST['name'])) {
+        $name = $_POST['name'];
+    } else {
+        $name = 'A dog without a name';
+    }
+
+    if (isset($_POST['breed'])) {
+        $breed = $_POST['breed'];
+    } else {
+        $breed = '';
+    }
+
+    if (isset($_POST['weight'])) {
+        $weight = $_POST['weight'];
+    } else {
+        $weight = '';
+    }
+
+    if (isset($_POST['bio'])) {
+        $bio = $_POST['bio'];
+    } else {
+        $bio = '';
+    }
+
+}
+
 require 'layout/header.php'; ?>
     <div class="container">
         <div class="row">
-            <form class="col-xs-6">
+            <div class="col-xs-6">
                 <h1>Add your Pet! Squirrel!</h1>
 
-                <h1>Add your Pet</h1>
-
-                <form action="/pets_new.php" class="control-label"
-                      method="POST">
+                <form action="" method="POST">
 
                     <div class="form-group">
                         <label for="pet-name" class="control-label">Pet
