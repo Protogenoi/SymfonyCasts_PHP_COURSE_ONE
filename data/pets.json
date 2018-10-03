@@ -4,15 +4,15 @@
         "breed": "Bichon",
         "weight": 8,
         "bio": "The park, The pool or the Playground - I love to go anywhere! I am really great at... SQUIRREL!",
-      "image": "pet1.png"
+        "image": "pet1.png"
     },
     {
         "name": "Spark Pug",
         "breed": "Pug",
-      "age": "",
+        "age": "",
         "weight": 11,
         "bio": "You want to go to the dog park in style? Then I am your pug!",
-      "image": "pet2.png"
+        "image": "pet2.png"
     },
     {
         "name": "Pico de Gato",
@@ -20,14 +20,30 @@
         "age": "5 years",
         "weight": 9,
         "bio": "Oh hai, if you do not have a can of salmon I am not interested.",
-      "image": "pet3.png"
+        "image": "pet3.png"
     },
     {
         "name": "Pancake",
-      "age": "Hidden",
+        "age": "Hidden",
         "weight": 9,
         "bio": "Treats and Snoozin!",
-      "image": "pancake.png",
+        "image": "pancake.png",
         "breed": "Bulldog"
+    },
+    {
+        "name": "Wags",
+        "breed": "Cute Puppy",
+        "weight": "120",
+        "bio": "Cute",
+        "age": "",
+        "image": ""
+    },
+    {
+        "name": "Furry",
+        "breed": "Big",
+        "weight": "500",
+        "bio": "Big dog!",
+        "age": "",
+        "image": ""
     }
 ]
