@@ -45,5 +45,13 @@
         "bio": "Big dog!",
         "age": "",
         "image": ""
+    },
+  {
+    "name": "Vitger",
+    "breed": "Cosmo",
+    "weight": "12",
+    "bio": "Magic",
+    "age": "",
+    "image": ""
     }
 ]
