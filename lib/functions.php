@@ -1,8 +1,7 @@
 <?php
 
-function get_pets($limit = null)
+function get_connection()
 {
-
     $config = require 'config.php';
 
     $pdo = new PDO(
@@ -10,6 +9,15 @@ function get_pets($limit = null)
         $config['database_user'],
         $config['database_pass']
     );
+
+    return $pdo;
+}
+
+function get_pets($limit = null)
+{
+
+    $pdo = get_connection();
+
     // THIS IS A HUGE SECURITY FLAW - TODO - WE WILL FIX THIS!
     $query = 'SELECT * FROM pet';
     if ($limit) {
@@ -20,6 +28,17 @@ function get_pets($limit = null)
 
     return $pets;
 
+}
+
+function get_pet($id)
+{
+    $pdo = get_connection();
+
+    // THIS IS A HUGE SECURITY FLAW - TODO - WE WILL FIX THIS!
+    $query = 'SELECT * FROM pet WHERE id = ' . $id;
+    $result = $pdo->query($query);
+
+    return $result->fetch();
 }
 
 function save_pets($petsToSave)
