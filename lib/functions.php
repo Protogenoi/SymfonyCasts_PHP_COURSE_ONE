@@ -3,8 +3,15 @@
 function get_pets()
 {
 
-    $petsJson = file_get_contents('data/pets.json');
-    $pets = json_decode($petsJson, true);
+    $config = require 'config.php';
+
+    $pdo = new PDO(
+        $config['database_dsn'],
+        $config['database_user'],
+        $config['database_pass']
+    );
+    $result = $pdo->query('SELECT * FROM pet');
+    $pets = $result->fetchAll();
 
     return $pets;
 
