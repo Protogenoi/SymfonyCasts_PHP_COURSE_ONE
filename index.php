@@ -27,7 +27,10 @@ require 'layout/header.php';
     <div class="row">
         <?php foreach ($pets as $cutepet) { ?>
             <div class="col-lg-4 pet-list-item">
-                <h2><?php echo $cutepet['name']; ?></h2>
+                <h2>
+                    <a href="/show.php?id=<?php echo $cutepet['id']; ?>">
+                        <?php echo $cutepet['name']; ?></a>
+                </h2>
                 <img src="/images/<?php echo $cutepet['image']; ?>"
                      class="img-rounded"/>
 
