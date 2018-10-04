@@ -9,6 +9,7 @@ function get_connection()
         $config['database_user'],
         $config['database_pass']
     );
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     return $pdo;
 }
@@ -21,10 +22,12 @@ function get_pets($limit = null)
     // THIS IS A HUGE SECURITY FLAW - TODO - WE WILL FIX THIS!
     $query = 'SELECT * FROM pet';
     if ($limit) {
-        $query = $query . ' LIMIT ' . $limit;
+        $query = $query . ' LIMIT :LIMIT';
     }
-    $result = $pdo->query($query);
-    $pets = $result->fetchAll();
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam('LIMIT', $limit, PDO::PARAM_INT);
+    $stmt->execute();
+    $pets = $stmt->fetchAll();
 
     return $pets;
 
@@ -33,12 +36,12 @@ function get_pets($limit = null)
 function get_pet($id)
 {
     $pdo = get_connection();
+    $query = 'SELECT * FROM pet WHERE id =:idVal';
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam('idVal', $id);
+    $stmt->execute();
 
-    // THIS IS A HUGE SECURITY FLAW - TODO - WE WILL FIX THIS!
-    $query = 'SELECT * FROM pet WHERE id = ' . $id;
-    $result = $pdo->query($query);
-
-    return $result->fetch();
+    return $stmt->fetch();
 }
 
 function save_pets($petsToSave)
